@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <title>フラッシュケツルス</title>
+  </head>
+  <body>
+    <div class="cell" id="start">
+
+    </div>
+    <div style="width:600px;height:600px;background:white;border:5px solid black;display:flex;flex-wrap:wrap">
+        <div style="display:flex;flex-wrap:wrap">
+            <div class="cell" id="1">
+            </div>
+            <div class="cell" id="2">
+            </div>
+            <div class="cell" id="3">
+            </div>
+            <div class="cell" id="4">
+            </div>
+            <div class="cell" id="5">
+            </div>
+            <div class="cell" id="6">
+            </div>
+        </div>
+
+        <div style="display:flex;flex-wrap:wrap;flex-flow: row-reverse;">
+            <div class="cell" id="7">
+            </div>
+            <div class="cell" id="8">
+            </div>
+            <div class="cell" id="9">
+            </div>
+            <div class="cell" id="10">
+            </div>
+            <div class="cell" id="11">
+            </div>
+            <div class="cell" id="12">
+            </div>
+        </div>
+            <div style="display:flex;flex-wrap:wrap">
+            <div class="cell" id="13">
+            </div>
+            <div class="cell" id="14">
+            </div>
+            <div class="cell" id="15">
+            </div>
+            <div class="cell" id="16">
+            </div>
+            <div class="cell" id="17">
+            </div>
+            <div class="cell" id="18">
+            </div>
+        </div>
+
+        <div style="display:flex;flex-wrap:wrap;flex-flow: row-reverse;">
+            <div class="cell" id="19">
+            </div>
+            <div class="cell" id="20">
+            </div>
+            <div class="cell" id="21">
+            </div>
+            <div class="cell" id="22">
+            </div>
+            <div class="cell" id="23">
+            </div>
+            <div class="cell" id="24">
+            </div>
+        </div>
+
+        <div style="display:flex;flex-wrap:wrap">
+            <div class="cell" id="25">
+            </div>
+            <div class="cell" id="26">
+            </div>
+            <div class="cell" id="27">
+            </div>
+            <div class="cell" id="28">
+            </div>
+            <div class="cell" id="29">
+            </div>
+            <div class="cell" id="30">
+            </div>
+        </div>
+
+        <div style="display:flex;flex-wrap:wrap;flex-flow: row-reverse;">
+            <div class="cell" id="31">
+            </div>
+            <div class="cell" id="32">
+            </div>
+            <div class="cell" id="33">
+            </div>
+            <div class="cell red_border" id="34">
+            </div>
+            <div class="cell red_border" id="35">
+            </div>
+            <div class="cell" id="36">
+            </div>
+        </div>
+    </div>
+  </body>
+</html>
+
+<style>
+    body {color:blue;}
+    .cell {
+        border:5px solid black;
+        width:90px;
+        height:90px;
+        margin:0
+        }
+    .red_border {
+        border:5px solid red;
+        }
+</style>
+
+<script>
+window.addEventListener("keydown", function (event) {
+  if (event.defaultPrevented) {
+    return; // デフォルトのアクションがキャンセルされている場合は何もしないようにします。
+  }
+
+  var handled = false;
+  if (event.keyCode == 80) {
+    console.log(count)
+    if(count == 34 || count == 35){
+        seiko.play()
+    }else{
+        sippai.play()
+    }
+    clearInterval(intervalId);
+  } else if (event.keyCode !== undefined) {
+      console.log(event.keyCode)
+  }
+
+  if (handled) {
+    event.preventDefault();
+  }
+}, true);
+
+var music = new Audio('pi.mp3');
+
+var seiko = new Audio('dokiri.mp3');
+var sippai= new Audio('sippai.mp3');
+
+
+var audio_first = false
+let count = 0;
+
+var speed = 50
+
+play_btn = document.getElementById("start");
+play_btn.addEventListener( 'click' , play );
+
+function play(){
+	music.play();
+    audio_first = true
+}
+
+const countUp = () =>{
+    console.log(count++);
+    music.currentTime = 0;
+    music.play(); 
+    if(count < 37){
+        red_num = String(count);
+        red_cell = document.getElementById(red_num);
+        red_cell.style.background = "red";
+    }
+    white_num = String(count-1);
+
+    if(white_num != "0" && count < 37){
+        white_cell = document.getElementById(white_num);
+        white_cell.style.background = "white";
+    }
+}
+
+const intervalId = setInterval(() =>{
+    if(audio_first == true){
+        countUp();
+        if(count > 37){　
+            clearInterval(intervalId);　//intervalIdをclearIntervalで指定している
+            sippai.play()
+        }
+    }
+},speed);
+</script>
