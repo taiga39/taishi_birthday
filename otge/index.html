@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <title>音ゲー</title>
+  </head>
+  <body>
+      <div id="start"></div>
+      <video id="video" src="ad.mp4" muted></video>
+  </body>
+</html>
+
+<style>
+#start {
+    border:5px solid black;
+    width:90px;
+    height:90px;
+    margin:0
+    }
+</style>
+
+<script>
+window.addEventListener("keydown", function (event) {
+  if (event.defaultPrevented) {
+    return; // デフォルトのアクションがキャンセルされている場合は何もしないようにします。
+  }
+
+  var handled = false;
+  if (event.keyCode == 75 ) {
+    if( 320 < count && count <= 680 ){
+      play_m.muted = false;limit_time = 680;
+    }else if( 500 < count && count <= 1340){
+      play_m.muted = false;limit_time = 1340;
+    }else if( 2160 < count && count <= 2830 ){
+      play_m.muted = false;limit_time = 2830;
+
+    }else if( 2500 < count && count <= 3160 ){
+      play_m.muted = false;limit_time = 3160;
+
+    }else if( 4160 < count && count <= 5000 ){
+      play_m.muted = false;limit_time = 5000;
+
+    }else if( 5160 < count && count <= 6000 ){
+      play_m.muted = false;limit_time = 6000;
+
+    }else if( 5830 < count && count <= 6670 ){
+      play_m.muted = false;limit_time = 6670;
+
+    }else if( 6500 < count && count <= 7340 ){
+      play_m.muted = false;limit_time = 7340;
+
+    }else if( 9330 < count && count <= 10000 ){
+      play_m.muted = false;limit_time = 10000
+
+    }else if( 9660 < count && count <= 11000 ){
+      play_m.muted = false;limit_time = 11000;
+
+    }else if( 1190 < count && count <= 2000 ){
+      play_m.muted = false;limit_time = 2000 ;
+
+    }
+  }else if (event.keyCode == 79 ) {
+    if(0 < count && count <= 320 ){
+      play_m.muted = false;limit_time = 320;
+
+    }else if( 180 < count && count <= 1000){
+      play_m.muted = false;limit_time = 1000;
+
+    }else if( 840< count && count <= 1680){
+      play_m.muted = false;limit_time = 1680;
+
+    }else if( 1500 < count && count <= 2330){
+      play_m.muted = false;limit_time = 2330;
+
+    }else if( 2000 < count && count <= 2660){
+      play_m.muted = false;limit_time = 2660;
+
+    }else if( 4833 < count && count <= 5660 ){
+      play_m.muted = false;limit_time = 5660;
+
+    }else if( 5500 < count && count <= 6340 ){
+      play_m.muted = false;limit_time = 6340;
+
+    }else if( 6170 < count && count <= 7000 ){
+      play_m.muted = false;limit_time = 7000;
+
+    }else if( 6840 < count && count <= 7660 ){
+      play_m.muted = false;limit_time = 7660;
+
+    }else if( 8500 < count && count <= 9165 ){
+      play_m.muted = false;limit_time = 9165;
+
+    }else if( 8833 < count && count <= 9883 ){
+      play_m.muted = false;limit_time = 9883;
+
+    }
+
+  }else if (event.keyCode == 77 ) {
+    if(3500 < count && count <= 4300 ){
+      play_m.muted = false;limit_time = 4300;
+
+    }
+  }else if (event.keyCode == 73 ) {
+    if(8000 < count && count <= 8660 ){
+      play_m.muted = false;limit_time = 8660;
+
+    }
+  }else if (event.keyCode == 74 ) {
+    if( 3180 < count && count <= 3830 ){
+      play_m.muted = false;limit_time = 3830;
+
+    }else if(3830 < count && count <= 4660){
+      play_m.muted = false;limit_time = 4660;
+
+    }
+  }else if (event.keyCode == 78 ) {
+    if( 7500 < count && count <= 8160 ){
+      play_m.muted = false;limit_time = 8160;
+
+    }else if( 7830 < count && count <= 8500 ){
+      play_m.muted = false;limit_time = 8500;
+
+    }else if( 8165 < count && count <= 8833 ){
+      play_m.muted = false;limit_time = 8833;
+
+    }
+  }else if (event.keyCode == 81 ) {
+    if( 2340 < count && count <= 3000 ){
+      play_m.muted = false;limit_time = 3000 ;
+
+    }else if( 3330 < count && count <= 4000 ){
+      play_m.muted = false;limit_time = 4000;
+
+    }else if(9500 < count && count <=	10165){
+      play_m.muted = false;limit_time = 10165;
+
+    }
+  }else if (event.keyCode == 65 ) {
+    if( 7660 < count && count <= 8330 ){
+      play_m.muted = false;limit_time = 8330;
+
+    }else if( 8330 < count && count <= 9000 ){
+      play_m.muted = false;limit_time = 9000;
+
+    }
+  }else if (event.keyCode == 90 ) {
+    if( 2670 < count && count <= 3330 ){
+      play_m.muted = false;limit_time = 3330 ;
+
+    }
+  }else if (event.keyCode == 87 ) {
+    if( 2830 < count && count <= 3670 ){
+      play_m.muted = false;limit_time = 3670;
+
+    }
+  }
+
+  if (handled) {
+    event.preventDefault();
+  }
+}, true);
+
+var music = new Audio('ado_back.wav');
+var play_m = new Audio('ado_player.wav');
+var count_m = new Audio('count.m4a');
+
+var v = document.getElementById("video");
+
+let count = 0;
+audio_first = false
+
+play_btn = document.getElementById("start");
+play_btn.addEventListener( 'click' , play );
+
+var limit_time
+
+function play(){
+    window.setTimeout(function(){
+      music.play();
+      play_m.play();
+      v.play();
+      play_m.muted = true;
+
+      audio_first = true
+  }, 3000);
+}
+
+
+const countUp = () =>{
+    count = count+10
+    if(limit_time < count){
+      play_m.muted = true;
+    }
+}
+
+
+const intervalId = setInterval(() =>{
+    if(audio_first == true){
+        countUp();
+        if(count > 10000){　
+            clearInterval(intervalId);　//intervalIdをclearIntervalで指定している
+        }
+    }
+},10);
+</script>
