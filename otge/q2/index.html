@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <title>音ゲー</title>
+  </head>
+  <body>
+      <p id="beta"></p>
+      <!-- <div id="start">
+        Demo
+      </div>
+      <div id="game">
+        Start
+      </div>
+
+      <video id="video" src="loveso_v.mp4" muted></video> -->
+  </body>
+</html>
+
+<style>
+  #start {
+    border:5px solid black;
+    width:90px;
+    height:90px;
+    margin:0
+    }
+  #game {
+    border:5px solid black;
+    width:90px;
+    height:90px;
+    margin:0
+    }
+</style>
+
+<script>
+var start = [
+              3060 -50,
+              3500 -50,
+              3680 -50,
+              3920 -50,
+              4120 -50,
+              4560 -50,
+              4760 -50,
+              5200 -50,
+              5630 -50,
+              6060 -50,
+              6260 -50,
+              6490 -50,
+              6700 -50,
+              7130 -50,
+              7350 -50,
+              7560 -50,
+              7900 -50,
+              8200 -50,
+              8600 -50,
+              9120 -50,
+              9500 -50,
+              9650 -50,
+              9870 -50,
+              10080 -50,
+              10440 -50,
+              10670 -50
+            ]
+
+var end = [
+            3500 +50,
+            3680 +50,
+            3920 +50,
+            4120 +50,
+            4320 +50,
+            4760 +50,
+            5120 +50,
+            5400 +50,
+            6060 +50,
+            6260 +50,
+            6490 +50,
+            6700 +50,
+            7130 +50,
+            7350 +50,
+            7560 +50,
+            7770 +50,
+            8200 +50,
+            8410 +50,
+            8850 +50,
+            9500 +50,
+            9650 +50,
+            9870 +50,
+            10080 +50,
+            10440 +50,
+            10670 +50,
+            10880 +50
+          ]
+window.addEventListener("keydown", function (event) {
+  if (event.defaultPrevented) {
+    return; // デフォルトのアクションがキャンセルされている場合は何もしないようにします。
+  }
+  var handled = false;
+
+  // if( start[0] < count && count <= end[0] ){
+  //   if (event.keyCode != 87 ) {
+  // console.log(start[0])
+
+  //     m_1.play()
+  //   }
+  // }else if( start[1] < count && count <= end[1] ){
+  //   if (event.keyCode != 75 ) {
+  //     m_2.play()
+  //   }
+  // }else if( start[2] < count && count <= end[2] ){
+  //   if (event.keyCode != 81 ) {
+  //     m_3.play()
+  //   }
+  // }else if( start[3] < count && count <= end[3] ){
+  //   if (event.keyCode != 79 ) {
+  //     m_4.play()
+  //   }
+  // }else if( start[4] < count && count <= end[4] ){
+  //   if (event.keyCode != 81 ) {
+  //     m_3.play()
+  //   }
+  // }else if( start[5] < count && count <= end[5] ){
+  //   if (event.keyCode != 73 ) {
+  //     m_5.play()
+  //   }
+  // }else if( start[6] < count && count <= end[6] ){
+  //   if (event.keyCode != 81 ) {
+  //     m_3.play()
+  //   }
+  // }else if( start[7] < count && count <= end[7] ){
+  //   if (event.keyCode != 73 ) {
+  //     m_5.play()
+  //   }
+  // }else if( start[8] < count && count <= end[8] ){
+  //   if (event.keyCode != 90 ) {
+  //     m_5.play()
+  //   }
+  // }else if( start[9] < count && count <= end[9] ){
+  //   if (event.keyCode != 77 ) {
+  //     m_6.play()
+  //   }
+  // }else if( start[10] < count && count <= end[10] ){
+  //   if (event.keyCode != 87 ) {
+  //     m_1.play()
+  //   }
+  // }else if( start[11] < count && count <= end[11] ){
+  //   if (event.keyCode != 77 ) {
+  //     m_6.play()
+  //   }
+  // }else if( start[12] < count && count <= end[12] ){
+  //   if (event.keyCode != 87 ) {
+  //     m_1.play()
+  //   }
+  // }else if( start[13] < count && count <= end[13] ){
+  //   if (event.keyCode != 75 ) {
+  //     m_2.play()
+  //   }
+  // }else if( start[14] < count && count <= end[14] ){
+  //   if (event.keyCode != 81 ) {
+  //     m_3.play()
+  //   }
+  // }else if( start[15] < count && count <= end[15] ){
+  //   if (event.keyCode != 65 ) {
+  //     m_3.play()
+  //   }
+  // }else if( start[16] < count && count <= end[16] ){
+  //   if (event.keyCode != 73 ) {
+  //     m_5.play()
+  //   }
+  // }else if( start[17] < count && count <= end[17] ){
+  //   if (event.keyCode != 81 ) {
+  //     m_3.play()
+  //   }
+  // }else if( start[18] < count && count <= end[18] ){
+  //   if (event.keyCode != 73 ) {
+  //     m_5.play()
+  //   }
+  // }else if( start[19] < count && count <= end[19] ){
+  //   if (event.keyCode != 78 ) {
+  //     m_7.play()
+  //   }
+  // }else if( start[20] < count && count <= end[20] ){
+  //   if (event.keyCode != 87 ) {
+  //     m_1.play()
+  //   }
+  // }else if( start[21] < count && count <= end[21] ){
+  //   if (event.keyCode != 75 ) {
+  //     m_2.play()
+  //   }
+  // }else if( start[22] < count && count <= end[22] ){
+  //   if (event.keyCode != 87 ) {
+  //     m_1.play()
+  //   }
+  // }else if( start[23] < count && count <= end[23] ){
+  //   if (event.keyCode != 74 ) {
+  //     m_1.play()
+  //   }
+  // }else if( start[24] < count && count <= end[24] ){
+  //   if (event.keyCode != 75 ) {
+  //     m_2.play()
+  //   }
+  // }else if( start[25] < count && count <= end[25] ){
+  //   if (event.keyCode != 81 ) {
+  //     m_3.play()
+  //   }
+  // } 
+  if (handled) {
+    event.preventDefault();
+  }
+}, true);
+
+window.addEventListener("deviceorientation", handleOrientation, true);
+var absolute
+var alpha
+var beta
+var gamma
+var betaa = document.getElementById("beta");
+betaa.innerText = "fdsafdasds"
+
+function handleOrientation(event) {
+  absolute = event.absolute;
+  alpha    = event.alpha;
+  beta     = event.beta;
+  gamma    = event.gamma;
+
+  betaa.innerText = beta
+  alert("fdasdf")
+}
+
+
+
+var music = new Audio('loveso_base.wav');
+var play_m = new Audio('loveso_demo.wav');
+var count_m = new Audio('count.mp3');
+
+var m_1 = new Audio('love1.wav');
+var m_2 = new Audio('love2.wav');
+var m_3 = new Audio('love3.wav');
+var m_4 = new Audio('love4.wav');
+var m_5 = new Audio('love5.wav');
+var m_6 = new Audio('love6.wav');
+var m_7 = new Audio('love7.wav');
+
+// m_1.playbackRate = 0.8
+// m_2.playbackRate = 0.8
+// m_3.playbackRate = 0.8
+// m_4.playbackRate = 0.8
+// m_5.playbackRate = 0.8
+// m_6.playbackRate = 0.8
+// m_7.playbackRate = 0.8
+
+var v = document.getElementById("video");
+
+let count = 0;
+audio_first = false
+
+play_btn = document.getElementById("start");
+play_btn.addEventListener( 'click' , play );
+
+game_btn = document.getElementById("game");
+game_btn.addEventListener( 'click' , playgame );
+
+
+function play(){
+  count_m.play()
+  count_m.addEventListener('ended', (event) => {
+    // music.volume = 0.5
+    play_m.volume = 0.5
+    // play_m.playbackRate = 0.8
+    // v.playbackRate = 0.8
+    // music.play();
+    v.play();
+    play_m.play()
+    audio_first = true
+  });
+}
+
+
+function playgame(){
+  count_m.play()
+  count_m.addEventListener('ended', (event) => {
+    music.volume = 0.5;
+    // music.playbackRate = 0.8
+    // v.playbackRate = 0.8
+    music.play();
+    v.play();
+    audio_first = true  
+  });
+}
+
+const countUp = () =>{
+    count = count+10
+    console.log(start[0])
+}
+
+
+const intervalId = setInterval(() =>{
+    if(audio_first == true){
+        countUp();
+        if(count > 13000){　
+            clearInterval(intervalId);　//intervalIdをclearIntervalで指定している
+        }
+    }
+},10);
+</script>
